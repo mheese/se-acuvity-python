@@ -1,0 +1,18 @@
+workflowVersion: 1.0.0
+speakeasyVersion: latest
+sources:
+    Acuvity-OAS:
+        inputs:
+            - location: ../openapi.json
+        overlays:
+            - location: .speakeasy/speakeasy-modifications-overlay.yaml
+        registry:
+            location: registry.speakeasyapi.dev/acuvity-9dx/acuvity/acuvity-oas
+targets:
+    acuvity:
+        target: python
+        source: Acuvity-OAS
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/acuvity-9dx/acuvity/acuvity-oas-code-samples
+            blocking: false

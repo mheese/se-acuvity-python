@@ -1,0 +1,35 @@
+speakeasyVersion: 1.444.1
+sources:
+    Acuvity-OAS:
+        sourceNamespace: acuvity-oas
+        sourceRevisionDigest: sha256:862d340f9e393748badd2fbead8e07156e41cc6af43171f21407b4e9848c03df
+        sourceBlobDigest: sha256:bd8f4b181dfd0063b0a961008d93381a087264b03bfead588707d9d315c8df64
+        tags:
+            - latest
+targets:
+    acuvity:
+        source: Acuvity-OAS
+        sourceNamespace: acuvity-oas
+        sourceRevisionDigest: sha256:862d340f9e393748badd2fbead8e07156e41cc6af43171f21407b4e9848c03df
+        sourceBlobDigest: sha256:bd8f4b181dfd0063b0a961008d93381a087264b03bfead588707d9d315c8df64
+        codeSamplesNamespace: acuvity-oas-code-samples
+        codeSamplesRevisionDigest: sha256:e413abd5c562ef56b539052b9c90fb07142294982b329038fe583e7fbfe56d53
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        Acuvity-OAS:
+            inputs:
+                - location: ../openapi.json
+            overlays:
+                - location: .speakeasy/speakeasy-modifications-overlay.yaml
+            registry:
+                location: registry.speakeasyapi.dev/acuvity-9dx/acuvity/acuvity-oas
+    targets:
+        acuvity:
+            target: python
+            source: Acuvity-OAS
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/acuvity-9dx/acuvity/acuvity-oas-code-samples
+                blocking: false
